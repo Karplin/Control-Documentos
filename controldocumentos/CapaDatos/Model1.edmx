@@ -1,0 +1,242 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="documentobdModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="DEPARTAMENTO">
+          <Key>
+            <PropertyRef Name="IdDepartamento" />
+          </Key>
+          <Property Name="IdDepartamento" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="30" />
+          <Property Name="Siglas" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="DOCUMENTOS">
+          <Key>
+            <PropertyRef Name="IdDocumento" />
+          </Key>
+          <Property Name="IdDocumento" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Cedulaempleado" Type="varchar" MaxLength="30" />
+          <Property Name="TipoDocumento" Type="varchar" MaxLength="30" />
+          <Property Name="OrigenDepartamento" Type="varchar" MaxLength="50" />
+          <Property Name="DestinoDepartamento" Type="varchar" MaxLength="50" />
+          <Property Name="Fecha" Type="varchar" MaxLength="30" />
+          <Property Name="Codigo" Type="varchar" MaxLength="30" />
+        </EntityType>
+        <EntityType Name="USUARIOS">
+          <Key>
+            <PropertyRef Name="IdUsuario" />
+          </Key>
+          <Property Name="IdUsuario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Cedula" Type="varchar" MaxLength="30" />
+          <Property Name="Nombre" Type="varchar" MaxLength="30" />
+          <Property Name="Apellido" Type="varchar" MaxLength="30" />
+          <Property Name="Correo" Type="varchar" MaxLength="30" />
+          <Property Name="Contrasena" Type="varchar" MaxLength="30" />
+          <Property Name="Departamento" Type="varchar" MaxLength="30" />
+          <Property Name="Cargo" Type="varchar" MaxLength="30" />
+          <Property Name="Edad" Type="int" />
+        </EntityType>
+        <Function Name="docu_destino" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="departadestino" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="docu_empleado" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="empleado" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="docu_fecha" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="fechaini" Type="varchar" Mode="In" />
+          <Parameter Name="fechafi" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="docu_origen" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="departaorigen" Type="varchar" Mode="In" />
+        </Function>
+        <EntityContainer Name="documentobdModelStoreContainer">
+          <EntitySet Name="DEPARTAMENTO" EntityType="Self.DEPARTAMENTO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DOCUMENTOS" EntityType="Self.DOCUMENTOS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="USUARIOS" EntityType="Self.USUARIOS" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="documentobdModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="documentobdEntities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="DEPARTAMENTOes" EntityType="documentobdModel.DEPARTAMENTO" />
+          <EntitySet Name="DOCUMENTOS" EntityType="documentobdModel.DOCUMENTO" />
+          <EntitySet Name="USUARIOS" EntityType="documentobdModel.USUARIO" />
+          <FunctionImport Name="docu_destino" ReturnType="Collection(documentobdModel.docu_destino_Result)">
+            <Parameter Name="departadestino" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="docu_empleado" ReturnType="Collection(documentobdModel.docu_empleado_Result)">
+            <Parameter Name="empleado" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="docu_fecha" ReturnType="Collection(documentobdModel.docu_fecha_Result)">
+            <Parameter Name="fechaini" Mode="In" Type="String" />
+            <Parameter Name="fechafi" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="docu_origen" ReturnType="Collection(documentobdModel.docu_origen_Result)">
+            <Parameter Name="departaorigen" Mode="In" Type="String" />
+          </FunctionImport>
+        </EntityContainer>
+        <EntityType Name="DEPARTAMENTO">
+          <Key>
+            <PropertyRef Name="IdDepartamento" />
+          </Key>
+          <Property Name="IdDepartamento" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Siglas" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="DOCUMENTO">
+          <Key>
+            <PropertyRef Name="IdDocumento" />
+          </Key>
+          <Property Name="IdDocumento" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Cedulaempleado" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="TipoDocumento" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="OrigenDepartamento" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DestinoDepartamento" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Fecha" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Codigo" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="USUARIO">
+          <Key>
+            <PropertyRef Name="IdUsuario" />
+          </Key>
+          <Property Name="IdUsuario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Cedula" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Nombre" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Apellido" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Correo" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Contrasena" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Departamento" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Cargo" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Edad" Type="Int32" />
+        </EntityType>
+        <ComplexType Name="docu_destino_Result">
+          <Property Type="String" Name="DestinoDepartamento" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="codigo" Nullable="true" MaxLength="30" />
+        </ComplexType>
+        <ComplexType Name="docu_empleado_Result">
+          <Property Type="String" Name="Cedulaempleado" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="codigo" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="TipoDocumento" Nullable="true" MaxLength="30" />
+        </ComplexType>
+        <ComplexType Name="docu_fecha_Result">
+          <Property Type="Int32" Name="IdDocumento" Nullable="false" />
+          <Property Type="String" Name="Cedulaempleado" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="TipoDocumento" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="OrigenDepartamento" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="DestinoDepartamento" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Fecha" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="Codigo" Nullable="true" MaxLength="30" />
+        </ComplexType>
+        <ComplexType Name="docu_origen_Result">
+          <Property Type="String" Name="OrigenDepartamento" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="codigo" Nullable="true" MaxLength="30" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="documentobdModelStoreContainer" CdmEntityContainer="documentobdEntities1">
+          <EntitySetMapping Name="DEPARTAMENTOes">
+            <EntityTypeMapping TypeName="documentobdModel.DEPARTAMENTO">
+              <MappingFragment StoreEntitySet="DEPARTAMENTO">
+                <ScalarProperty Name="Siglas" ColumnName="Siglas" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="IdDepartamento" ColumnName="IdDepartamento" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DOCUMENTOS">
+            <EntityTypeMapping TypeName="documentobdModel.DOCUMENTO">
+              <MappingFragment StoreEntitySet="DOCUMENTOS">
+                <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+                <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+                <ScalarProperty Name="DestinoDepartamento" ColumnName="DestinoDepartamento" />
+                <ScalarProperty Name="OrigenDepartamento" ColumnName="OrigenDepartamento" />
+                <ScalarProperty Name="TipoDocumento" ColumnName="TipoDocumento" />
+                <ScalarProperty Name="Cedulaempleado" ColumnName="Cedulaempleado" />
+                <ScalarProperty Name="IdDocumento" ColumnName="IdDocumento" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="USUARIOS">
+            <EntityTypeMapping TypeName="documentobdModel.USUARIO">
+              <MappingFragment StoreEntitySet="USUARIOS">
+                <ScalarProperty Name="Edad" ColumnName="Edad" />
+                <ScalarProperty Name="Cargo" ColumnName="Cargo" />
+                <ScalarProperty Name="Departamento" ColumnName="Departamento" />
+                <ScalarProperty Name="Contrasena" ColumnName="Contrasena" />
+                <ScalarProperty Name="Correo" ColumnName="Correo" />
+                <ScalarProperty Name="Apellido" ColumnName="Apellido" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Cedula" ColumnName="Cedula" />
+                <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="docu_destino" FunctionName="documentobdModel.Store.docu_destino">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="documentobdModel.docu_destino_Result">
+                <ScalarProperty Name="DestinoDepartamento" ColumnName="DestinoDepartamento" />
+                <ScalarProperty Name="codigo" ColumnName="codigo" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="docu_empleado" FunctionName="documentobdModel.Store.docu_empleado">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="documentobdModel.docu_empleado_Result">
+                <ScalarProperty Name="Cedulaempleado" ColumnName="Cedulaempleado" />
+                <ScalarProperty Name="codigo" ColumnName="codigo" />
+                <ScalarProperty Name="TipoDocumento" ColumnName="TipoDocumento" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="docu_fecha" FunctionName="documentobdModel.Store.docu_fecha">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="documentobdModel.docu_fecha_Result">
+                <ScalarProperty Name="IdDocumento" ColumnName="IdDocumento" />
+                <ScalarProperty Name="Cedulaempleado" ColumnName="Cedulaempleado" />
+                <ScalarProperty Name="TipoDocumento" ColumnName="TipoDocumento" />
+                <ScalarProperty Name="OrigenDepartamento" ColumnName="OrigenDepartamento" />
+                <ScalarProperty Name="DestinoDepartamento" ColumnName="DestinoDepartamento" />
+                <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+                <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="docu_origen" FunctionName="documentobdModel.Store.docu_origen">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="documentobdModel.docu_origen_Result">
+                <ScalarProperty Name="OrigenDepartamento" ColumnName="OrigenDepartamento" />
+                <ScalarProperty Name="codigo" ColumnName="codigo" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

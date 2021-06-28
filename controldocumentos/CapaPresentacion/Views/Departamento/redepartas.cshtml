@@ -1,0 +1,61 @@
+﻿@model IEnumerable<CapaEntidad.DEPARTAMENTO>
+
+<link href="~/Content/registro.css" rel="stylesheet" />
+
+@{
+    ViewBag.Title = "redepartas";
+}
+
+<h2>Reporte de Departamentos</h2>
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.IdDepartamento)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Nombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Siglas)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdDepartamento)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Siglas)
+            </td>
+
+        </tr>
+    }
+
+</table>
+
+<div class="navbar navbar-inverse navbar-fixed-top">
+    <div >
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li>@Html.ActionLink("Principal", "Principal", "Usuarios")</li>
+                <li>@Html.ActionLink("Reportes", "Index", "Reportes")</li>
+                <li>@Html.ActionLink("Cerrar Sesion", "Index", "Usuarios")</li>
+            </ul>
+        </div>
+    </div>
+</div>

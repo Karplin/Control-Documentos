@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="documentobdModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="DEPARTAMENTO">
+    <Key>
+      <PropertyRef Name="IdDepartamento" />
+    </Key>
+    <Property Name="IdDepartamento" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="30" />
+    <Property Name="Siglas" Type="varchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="DOCUMENTOS">
+    <Key>
+      <PropertyRef Name="IdDocumento" />
+    </Key>
+    <Property Name="IdDocumento" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Cedulaempleado" Type="varchar" MaxLength="30" />
+    <Property Name="TipoDocumento" Type="varchar" MaxLength="30" />
+    <Property Name="OrigenDepartamento" Type="varchar" MaxLength="50" />
+    <Property Name="DestinoDepartamento" Type="varchar" MaxLength="50" />
+    <Property Name="Fecha" Type="varchar" MaxLength="30" />
+    <Property Name="Codigo" Type="varchar" MaxLength="30" />
+  </EntityType>
+  <EntityType Name="USUARIOS">
+    <Key>
+      <PropertyRef Name="IdUsuario" />
+    </Key>
+    <Property Name="IdUsuario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Cedula" Type="varchar" MaxLength="30" />
+    <Property Name="Nombre" Type="varchar" MaxLength="30" />
+    <Property Name="Apellido" Type="varchar" MaxLength="30" />
+    <Property Name="Correo" Type="varchar" MaxLength="30" />
+    <Property Name="Contrasena" Type="varchar" MaxLength="30" />
+    <Property Name="Departamento" Type="varchar" MaxLength="30" />
+    <Property Name="Cargo" Type="varchar" MaxLength="30" />
+    <Property Name="Edad" Type="int" />
+  </EntityType>
+  <Function Name="docu_destino" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="departadestino" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="docu_empleado" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="empleado" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="docu_fecha" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="fechaini" Type="varchar" Mode="In" />
+    <Parameter Name="fechafi" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="docu_origen" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="departaorigen" Type="varchar" Mode="In" />
+  </Function>
+  <EntityContainer Name="documentobdModelStoreContainer">
+    <EntitySet Name="DEPARTAMENTO" EntityType="Self.DEPARTAMENTO" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DOCUMENTOS" EntityType="Self.DOCUMENTOS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="USUARIOS" EntityType="Self.USUARIOS" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,97 @@
+﻿@model IEnumerable<CapaEntidad.USUARIO>
+
+<link href="~/Content/registro.css" rel="stylesheet" />
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>LISTADO DE USUARIOS</h2>
+
+<p>
+    @Html.ActionLink("Agregar Usuario", "config1")
+</p>
+
+<p>
+    @Html.ActionLink("Editar Usuario", "Edit")
+</p>
+
+<p>
+    @Html.ActionLink("Borrar Usuario", "Delete")
+</p>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.IdUsuario)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Nombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Apellido)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Correo)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.Departamento)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Cargo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Edad)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdUsuario)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Apellido)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Correo)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.Departamento)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cargo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Edad)
+            </td>
+
+        </tr>
+    }
+
+</table>
+
+<div class="navbar navbar-inverse navbar-fixed-top">
+    <div >
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li>@Html.ActionLink("Principal", "Principal", "Usuarios")</li>
+                <li>@Html.ActionLink("Cerrar Sesion", "Index", "Usuarios")</li>
+            </ul>
+        </div>
+    </div>
+</div>

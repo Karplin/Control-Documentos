@@ -1,0 +1,11 @@
+C:\Users\Leonal\source\repos\controldocumentos\CapaEntidad\bin\Debug\CapaEntidad.dll.config
+C:\Users\Leonal\source\repos\controldocumentos\CapaEntidad\bin\Debug\CapaEntidad.dll
+C:\Users\Leonal\source\repos\controldocumentos\CapaEntidad\bin\Debug\CapaEntidad.pdb
+C:\Users\Leonal\source\repos\controldocumentos\CapaEntidad\bin\Debug\EntityFramework.dll
+C:\Users\Leonal\source\repos\controldocumentos\CapaEntidad\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Leonal\source\repos\controldocumentos\CapaEntidad\bin\Debug\EntityFramework.xml
+C:\Users\Leonal\source\repos\controldocumentos\CapaEntidad\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Leonal\source\repos\controldocumentos\CapaEntidad\obj\Debug\CapaEntidad.csproj.CoreCompileInputs.cache
+C:\Users\Leonal\source\repos\controldocumentos\CapaEntidad\obj\Debug\CapaEntidad.csproj.CopyComplete
+C:\Users\Leonal\source\repos\controldocumentos\CapaEntidad\obj\Debug\CapaEntidad.dll
+C:\Users\Leonal\source\repos\controldocumentos\CapaEntidad\obj\Debug\CapaEntidad.pdb

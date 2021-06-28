@@ -1,0 +1,55 @@
+﻿@model IEnumerable<CapaEntidad.docu_destino_Result>
+
+<link href="~/Content/registro.css" rel="stylesheet" />
+
+@{
+    ViewBag.Title = "resultadepartadesti";
+}
+
+<h2>Listado de Departamentos</h2>
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.DestinoDepartamento)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.codigo)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.DestinoDepartamento)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.codigo)
+            </td>
+        </tr>
+    }
+
+</table>
+
+
+<div class="navbar navbar-inverse navbar-fixed-top">
+    <div >
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li>@Html.ActionLink("Principal", "Principal", "Usuarios")</li>
+                <li>@Html.ActionLink("Reportes", "Index", "Reportes")</li>
+                <li>@Html.ActionLink("Cerrar Sesion", "Index", "Usuarios")</li>
+            </ul>
+        </div>
+    </div>
+</div>

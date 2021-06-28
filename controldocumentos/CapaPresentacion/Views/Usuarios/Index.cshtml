@@ -1,0 +1,59 @@
+﻿@model CapaEntidad.USUARIO
+
+<link href="~/Content/master.css" rel="stylesheet" />
+
+@{
+
+    ViewBag.Title = "Login";
+
+}
+
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        if ($('#popupdiv').html() != '') {
+            $("#popupdiv").show();
+        }
+    });
+</script>
+
+@using (Html.BeginForm())
+
+{
+
+    @Html.AntiForgeryToken()
+
+
+    if (@ViewBag.Mensaje != null)
+    {
+        <div id="popupdiv"  style="border: 2px solid red; background-color:white; display: none;">
+            @ViewBag.Mensaje
+        </div>
+
+    }
+
+    <body>
+
+        <div class="login-box">
+            <img src="~/img/docuicon.jpg" class="avatar" alt="Avatar Image">
+            <form>
+                @Html.LabelFor(model => model.Correo, htmlAttributes: new { @class = "control-label col-md-2" })
+                @Html.EditorFor(model => model.Correo, new { htmlAttributes = new { placeholder = " Ingrese su Correo", @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Correo, "", new { @class = "text-danger" })
+
+                @Html.Label("Contraseña", htmlAttributes: new { @class = "control-label col-md-2" })
+                @Html.EditorFor(model => model.Contrasena, new { htmlAttributes = new { type = "password", placeholder = " Ingrese su Contraseña", @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Contrasena, "", new { @class = "text-danger" })
+
+                <input type="submit" value="Iniciar Sesión" class="btn btn-default" />
+
+                <a>@Html.ActionLink("¿No tienes una cuenta? Regístrate!", "Create", "Usuarios")</a>
+            </form>
+        </div>
+
+    </body>
+
+
+
+}
+

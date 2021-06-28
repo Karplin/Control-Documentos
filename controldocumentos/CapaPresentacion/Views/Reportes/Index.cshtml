@@ -1,0 +1,34 @@
+﻿<link href="~/Content/crear.css" rel="stylesheet" />
+
+@{
+    ViewBag.Title = "Index";
+}
+
+
+<h2>Reportes</h2>
+
+<li>@Html.ActionLink("Ver - Usuarios", "reusuarios", "Usuarios")</li>
+<li>@Html.ActionLink("Ver - Departamentos", "redepartas", "Departamento")</li>
+<li>@Html.ActionLink("Ver - Documentos", "redocumentos", "Documentos")</li>
+<li>@Html.ActionLink("Documentos - Empleados", "Busquedaemple", "Reportes")</li>
+<li>@Html.ActionLink("Documentos - Departamento Origen", "busquedadepartaori", "Reportes")</li>
+<li>@Html.ActionLink("Documentos - Departamento Destino", "Busquedadepartadesti", "Reportes")</li>
+<li>@Html.ActionLink("Documentos - Rango de Fecha", "Busquedadepafecha", "Reportes")</li>
+
+<div class="navbar navbar-inverse navbar-fixed-top">
+    <div >
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li>@Html.ActionLink("Principal", "Principal", "Usuarios")</li>
+                <li>@Html.ActionLink("Cerrar Sesion", "Index", "Usuarios")</li>
+            </ul>
+        </div>
+    </div>
+</div>

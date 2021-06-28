@@ -1,0 +1,33 @@
+﻿<link href="~/Content/crear.css" rel="stylesheet" />
+
+@{
+    ViewBag.Title = "Busquedadepartadesti";
+}
+
+<h2>Buscar por Departamento - Destino</h2>
+
+<form action="resultadepartadesti" method="post">
+    <input type="text" name="departadestino" placeholder="Ingrese el Departamento" class="form-control" />
+    <hr />
+    <input type="submit" value="Buscar" class="btn btn-success" />
+</form>
+
+<div class="navbar navbar-inverse navbar-fixed-top">
+    <div >
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li>@Html.ActionLink("Principal", "Principal", "Usuarios")</li>
+                <li>@Html.ActionLink("Cerrar Sesion", "Index", "Usuarios")</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+

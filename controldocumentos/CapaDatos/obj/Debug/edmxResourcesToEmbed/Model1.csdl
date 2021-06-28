@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="documentobdModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="documentobdEntities1" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="DEPARTAMENTOes" EntityType="documentobdModel.DEPARTAMENTO" />
+    <EntitySet Name="DOCUMENTOS" EntityType="documentobdModel.DOCUMENTO" />
+    <EntitySet Name="USUARIOS" EntityType="documentobdModel.USUARIO" />
+    <FunctionImport Name="docu_destino" ReturnType="Collection(documentobdModel.docu_destino_Result)">
+      <Parameter Name="departadestino" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="docu_empleado" ReturnType="Collection(documentobdModel.docu_empleado_Result)">
+      <Parameter Name="empleado" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="docu_fecha" ReturnType="Collection(documentobdModel.docu_fecha_Result)">
+      <Parameter Name="fechaini" Mode="In" Type="String" />
+      <Parameter Name="fechafi" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="docu_origen" ReturnType="Collection(documentobdModel.docu_origen_Result)">
+      <Parameter Name="departaorigen" Mode="In" Type="String" />
+    </FunctionImport>
+  </EntityContainer>
+  <EntityType Name="DEPARTAMENTO">
+    <Key>
+      <PropertyRef Name="IdDepartamento" />
+    </Key>
+    <Property Name="IdDepartamento" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="Siglas" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="DOCUMENTO">
+    <Key>
+      <PropertyRef Name="IdDocumento" />
+    </Key>
+    <Property Name="IdDocumento" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Cedulaempleado" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="TipoDocumento" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="OrigenDepartamento" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="DestinoDepartamento" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Fecha" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="Codigo" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="USUARIO">
+    <Key>
+      <PropertyRef Name="IdUsuario" />
+    </Key>
+    <Property Name="IdUsuario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Cedula" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="Nombre" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="Apellido" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="Correo" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="Contrasena" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="Departamento" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="Cargo" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="Edad" Type="Int32" />
+  </EntityType>
+  <ComplexType Name="docu_destino_Result">
+    <Property Type="String" Name="DestinoDepartamento" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="codigo" Nullable="true" MaxLength="30" />
+  </ComplexType>
+  <ComplexType Name="docu_empleado_Result">
+    <Property Type="String" Name="Cedulaempleado" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="codigo" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="TipoDocumento" Nullable="true" MaxLength="30" />
+  </ComplexType>
+  <ComplexType Name="docu_fecha_Result">
+    <Property Type="Int32" Name="IdDocumento" Nullable="false" />
+    <Property Type="String" Name="Cedulaempleado" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="TipoDocumento" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="OrigenDepartamento" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="DestinoDepartamento" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Fecha" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="Codigo" Nullable="true" MaxLength="30" />
+  </ComplexType>
+  <ComplexType Name="docu_origen_Result">
+    <Property Type="String" Name="OrigenDepartamento" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="codigo" Nullable="true" MaxLength="30" />
+  </ComplexType>
+</Schema>
